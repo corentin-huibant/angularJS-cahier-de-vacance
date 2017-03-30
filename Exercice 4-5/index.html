@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exercice 4 - Supprimer</title>
+  <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body ng-app="shoppingCart">
+  <h1>Votre panier d'achat</h1>
+  <div ng-controller='CartController' class='cart' >
+    <div ng-repeat='item in items'>
+      <span>{{item.title}}</span>
+      <input ng-model='item.quantity'>
+      <span>{{item.price | currency: "€"}}</span>
+      <span>{{item.price * item.quantity | currency: "€"}}</span>
+      <button ng-click="remove($index)">Supprimer</button>
+    </div>
+      <p>prix: {{total() | currency: "€"}}</p>
+      <button ng-click="add()">Ajouter</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
